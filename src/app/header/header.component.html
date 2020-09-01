@@ -2,7 +2,10 @@
     <div class="col-6 home">
         <a [routerLink]="['/home']">Home</a>
     </div>
-    <div class="col-6 login">
+    <div *ngIf="!isLogin" class="col-6 login">
         <a [routerLink]="['/login']">Login</a>
+    </div>
+    <div *ngIf="isLogin" class="col-6 login">
+        Hello {{user}}
     </div>
 </div>

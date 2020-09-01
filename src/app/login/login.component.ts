@@ -1,3 +1,4 @@
+import { LoginService } from './../services/login.service';
 import { AlertService } from './../services/alert.service';
 import { UserService } from './../services/user.service';
 import { Component, OnInit } from '@angular/core';
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
     private userService: UserService,
     private alertService: AlertService,
     private router: Router,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private loginService: LoginService
   ) {}
 
   ngOnInit(): void {
@@ -32,9 +34,12 @@ export class LoginComponent implements OnInit {
           this.alertService.showSuccessAlert('Login success');
           k = true;
           this.cookieService.set('id', this.user);
+          this.loginService.newEvent(this.user)
+          console.log(this.loginService.events$);
+          
           setTimeout(() => {
             this.router.navigateByUrl('/home');
-          }, 3000);
+          }, 1000);
         } else {
           this.alertService.showErrorAlert('Your password not true!');
           k = true;

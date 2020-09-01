@@ -34,9 +34,7 @@ export class LoginComponent implements OnInit {
           this.alertService.showSuccessAlert('Login success');
           k = true;
           this.cookieService.set('id', this.user);
-          this.loginService.newEvent(this.user)
-          console.log(this.loginService.events$);
-          
+          this.loginService.newEvent(this.user);
           setTimeout(() => {
             this.router.navigateByUrl('/home');
           }, 1000);

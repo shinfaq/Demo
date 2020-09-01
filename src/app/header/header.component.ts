@@ -30,7 +30,6 @@ export class HeaderComponent implements OnInit {
     }
   }
   logout() {
-    this.loginService.newEvent('');
     this.isLogin = false;
   }
 }

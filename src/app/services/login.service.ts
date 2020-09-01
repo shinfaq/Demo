@@ -9,7 +9,6 @@ export class LoginService {
   newEvent(event) {
     this._subject.next(event);
   }
-
   get events$() {
     return this._subject.asObservable();
   }
